@@ -6,7 +6,7 @@ package cellularData;
  * Then changes the data in the copied list to test that the original list
  * is not modified.
  * 
- * @author Foothill College, [YOUR NAME HERE]
+ * @author Foothill College, William Tsai
  */
 
 
@@ -98,15 +98,19 @@ public class TestCopyCountryList
 			String previousName = existingCountryToModify.getName();
 
 			// TODO: set the name of the country...
+			String newName = "Mordor";
+			existingCountryToModify.setName(newName);
 
 			// TODO: Display a message describing the changes you made.
+
+			System.out.printf("\n Set the name of the country from %s to %s\n", previousName, newName);
 
 			// Check that the list was updated properly.
 			// NOTE REGARDING OUTPUT:
 			// The difference between the original and the modified node(s) in the copied 
 			// list must be *apparent*.
-			System.out.println("original list: " + theOriginalList);
-			System.out.println("\ncopied list: " + theCopiedList);
+			System.out.println("original list: \n" + theOriginalList);
+			System.out.println("\ncopied list: \n" + theCopiedList);
 			/* example output:
 			 Changed the country name "Channel Islands" to "Beautiful Foothill"
              original list: 
@@ -150,8 +154,8 @@ public class TestCopyCountryList
 			// NOTE REGARDING OUTPUT:
 			// The difference between the original and the modified node(s) in the copied 
 			// list must be *apparent*.
-			System.out.println("original list: " + theOriginalList);
-			System.out.println("copied list: " + theCopiedList);
+			System.out.println("original list: \n" + theOriginalList);
+			System.out.println("copied list: \n" + theCopiedList);
 			/* example output:
 			 Changed the Country's Germany subscriptions at index 0.
              original list: 
@@ -195,8 +199,8 @@ public class TestCopyCountryList
 			// NOTE REGARDING OUTPUT:
 			// The difference between the original and the modified node(s) in the copied 
 			// list must be *apparent*.
-			System.out.println("original list: " + theOriginalList);
-			System.out.println("copied list: " + theCopiedList);
+			System.out.println("original list: \n" + theOriginalList);
+			System.out.println("copied list: \n" + theCopiedList);
 			/* example output:
 			 Replaced the country at index 3.
            original list: 
@@ -247,8 +251,8 @@ public class TestCopyCountryList
 			// NOTE REGARDING OUTPUT:
 			// The difference between the original and the modified node(s) in the copied 
 			// list must be *apparent*.
-			System.out.println("original list: " + theOriginalList);
-			System.out.println("copied list: " + theCopiedList);
+			System.out.println("original list: \n" + theOriginalList);
+			System.out.println("copied list: \n" + theCopiedList);
 		}
 		catch (IndexOutOfBoundsException exc)
 		{
