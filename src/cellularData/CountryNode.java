@@ -68,6 +68,10 @@ public class CountryNode {
         this.next = next;
     }
 
+    /**
+     * setter method for country
+     * @param country
+     */
     public void setCountry(Country country)
     {
         this.country = country;

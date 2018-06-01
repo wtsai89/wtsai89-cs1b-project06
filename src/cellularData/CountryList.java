@@ -104,6 +104,10 @@ public class CountryList {
         walker = head;
         for(int i = 0; i < size; i++)
         {
+            if(i == 0)
+                s += "   " + walker.getCountry().yearString();
+
+            s += String.format("%-3s", i + ")");
             s += walker.getCountry();
             walker = walker.getNext();
         }
@@ -125,7 +129,7 @@ public class CountryList {
      * @param country
      * @param index
      */
-    public void insertAtIndex(Country country, int index)
+    public void insertAtIndex(int index, Country country)
     {
         if(index < 0)
             throw new IndexOutOfBoundsException();

@@ -60,7 +60,7 @@ public class TestCopyCountryList
 	/**
 	 * Copies a CountryList object. Then, modifies one or more countries in the 
 	 * copied list. Displays the copied list after the update.
-	 * @param listOfCountries      The list of countries to be copied and modified.
+	 * @param theOriginalList      The list of countries to be copied and modified.
 	 */	
 	private void testCopiedList(Country [] allCountries, CountryList theOriginalList, CountryList theCopiedList)
 	{	
@@ -103,7 +103,7 @@ public class TestCopyCountryList
 
 			// TODO: Display a message describing the changes you made.
 
-			System.out.printf("\n Set the name of the country from %s to %s\n", previousName, newName);
+			System.out.printf("\nSet the name of the country from %s to %s\n\n", previousName, newName);
 
 			// Check that the list was updated properly.
 			// NOTE REGARDING OUTPUT:
@@ -145,10 +145,43 @@ public class TestCopyCountryList
 		{
 			// get a reference to an existing country in the list to be modified
 			Country existingCountryToModify = theCopiedList.getIndex(selectedIndex);
+			SubscriptionYear[] subs = existingCountryToModify.getSubscriptions();
 
 			// TODO: make some changes to the country...
+			int yearIndex = 0;
+			double newValue = 99.99;
+
+			SubscriptionYear yearToModify = subs[yearIndex];
+			double oldSub = yearToModify.getSubscriptions();
+			yearToModify.setSubscriptions(newValue);
 
 			// TODO: Display a message describing the changes you made.
+
+			System.out.printf("\nModified %s's subscriptions in the year %d from %.2f to %.2f\n", existingCountryToModify.getName(), yearToModify.getYear(), oldSub, yearToModify.getSubscriptions());
+
+			// TODO: make some changes to the country...
+			yearIndex = 1;
+			newValue = 88.88;
+
+			yearToModify = subs[yearIndex];
+			oldSub = yearToModify.getSubscriptions();
+			yearToModify.setSubscriptions(newValue);
+
+			// TODO: Display a message describing the changes you made.
+
+			System.out.printf("\nModified %s's subscriptions in the year %d from %.2f to %.2f\n", existingCountryToModify.getName(), yearToModify.getYear(), oldSub, yearToModify.getSubscriptions());
+
+			// TODO: make some changes to the country...
+			yearIndex = 3;
+			newValue = 77.77;
+
+			yearToModify = subs[yearIndex];
+			oldSub = yearToModify.getSubscriptions();
+			yearToModify.setSubscriptions(newValue);
+
+			// TODO: Display a message describing the changes you made.
+
+			System.out.printf("\nModified %s's subscriptions in the year %d from %.2f to %.2f\n\n", existingCountryToModify.getName(), yearToModify.getYear(), oldSub, yearToModify.getSubscriptions());
 
 			// Check that the list was updated properly.
 			// NOTE REGARDING OUTPUT:
@@ -193,7 +226,7 @@ public class TestCopyCountryList
 			theCopiedList.replaceAtIndex(selectedIndex, replacement);
 
 			// Displays a message describing the changes made.
-			System.out.println("\nReplaced index " + selectedIndex + " with country named " + replacement.getName()); // bm
+			System.out.println("\nReplaced index " + selectedIndex + " with country named " + replacement.getName() + "\n"); // bm
 
 			// Check that the list was updated properly.
 			// NOTE REGARDING OUTPUT:
@@ -238,10 +271,13 @@ public class TestCopyCountryList
 		try
 		{
 			Country replacement = null;
-			// TODO: Construct a new Country object by giving it a name and 
+			// TODO: Construct a new Country object by giving it a name and
 			//       some subscription information.
+			int someIndex = 2;
+			replacement = new Country(allCountries[someIndex]);
 
 			// TODO: Display a message describing the changes you made.
+			System.out.printf("\nReplaced index %d with country named %s\n\n", selectedIndex, replacement.getName());
 
 			// Replaces the element at a specified index of he CountryList class.
 			// NOTE: If the requested index is invalid throws an IndexOutOfBoundsException.
@@ -250,6 +286,43 @@ public class TestCopyCountryList
 			// Check that the list was updated properly.
 			// NOTE REGARDING OUTPUT:
 			// The difference between the original and the modified node(s) in the copied 
+			// list must be *apparent*.
+			System.out.println("original list: \n" + theOriginalList);
+			System.out.println("copied list: \n" + theCopiedList);
+		}
+		catch (IndexOutOfBoundsException exc)
+		{
+			System.err.printf("ERROR: Requested index %d is out of range.", selectedIndex);
+			System.err.printf("Valid element positions are (index >= 0 && index < %d).", theCopiedList.size());
+		}
+
+		//adding an element to copied list
+
+		do
+		{
+			// Prompts the user for the element they want to modify
+			System.out.println("\nWhich index in the list do you want to add a new country?");
+			selectedIndex = Integer.parseInt( keyboard.nextLine() );
+		} while (selectedIndex < 0 && selectedIndex > theCopiedList.size());
+
+
+		try
+		{
+			Country countryToAdd = null;
+
+			int someIndex = 3;
+			countryToAdd = new Country(allCountries[someIndex]);
+
+			// TODO: Display a message describing the changes you made.
+			System.out.printf("\nAdded country named %s at index %d\n\n", countryToAdd.getName(), selectedIndex);
+
+			// Replaces the element at a specified index of he CountryList class.
+			// NOTE: If the requested index is invalid throws an IndexOutOfBoundsException.
+			theCopiedList.insertAtIndex(selectedIndex, countryToAdd);
+
+			// Check that the list was updated properly.
+			// NOTE REGARDING OUTPUT:
+			// The difference between the original and the modified node(s) in the copied
 			// list must be *apparent*.
 			System.out.println("original list: \n" + theOriginalList);
 			System.out.println("copied list: \n" + theCopiedList);

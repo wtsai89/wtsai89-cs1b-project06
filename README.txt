@@ -1,8 +1,32 @@
-// TODO: For every project create a README file at the top-level directory of 
-//       your project. Your README must include a list of .java files you are 
-//       submitting and a brief description of each. You may ignore IDE specific 
-//       files such as .gitignore 
+project folder:
+wtsai89-cs1b-project06/
 
-// NOTE: Alternatively you can create this file in Markdown format. 
-//       See the tutorial:
-//       https://guides.github.com/features/mastering-markdown/
+
+Brief description of submitted files:
+
+src/CountryNode.java
+    - Node of the CountryList class
+
+src/CountryList.java
+    - Organizes multiple countries into a linked list
+
+src/CSVReader.java
+    - Reads a csv file containing cellular data and stores it in a table
+
+src/SubscriptionYear.java
+    - Stores the subscription data for a country during a single year
+
+src/Country.java
+    - Stores the entire subscription data for a single country
+
+src/TestCopyCountryList.java
+    - Main application tests deep copy functions
+
+resources/cellular_short_oneDecade.csv
+    - partial table for cellular data
+
+resources/cellular.csv
+    - complete table for cellular data
+
+resources/RUN.txt
+    - output of TestCountryList's class

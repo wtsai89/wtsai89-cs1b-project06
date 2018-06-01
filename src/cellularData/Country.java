@@ -36,6 +36,8 @@ public class Country {
     public Country(Country country)
     {
         this.name = country.getName();
+        this.startingYear = country.getStartingYear();
+        this.endingYear = country.getEndingYear();
         SubscriptionYear[] subs = country.getSubscriptions();
         this.subscriptionsPerYear = new SubscriptionYear[subs.length];
         for(index = 0; index < subs.length; index++)
@@ -73,6 +75,18 @@ public class Country {
      * @return
      */
     public SubscriptionYear[] getSubscriptions() { return subscriptionsPerYear; }
+
+    /**
+     * accessor method for startingYear
+     * @return
+     */
+    public int getStartingYear() { return startingYear; }
+
+    /**
+     * accessor method for endingYear
+     * @return
+     */
+    public int getEndingYear() { return endingYear; }
 
     /**
      * returns the total number of subscriptions between start and end years
@@ -114,10 +128,23 @@ public class Country {
      */
     public String toString()
     {
-        String s = String.format("%-20s", name);
+        String s = String.format("%-25s", name);
         for(int i = 0; i < subscriptionsPerYear.length; i++)
             s += String.format("%7.2f", subscriptionsPerYear[i].getSubscriptions());
 
+        s += "\n";
+        return s;
+    }
+
+    /**
+     * display the years in a single formatted line
+     * @return
+     */
+    public String yearString()
+    {
+        String s = String.format("%-25s", "");
+        for(int i = startingYear; i <= endingYear; i++)
+            s+= String.format("%7d", i);
         s += "\n";
         return s;
     }
